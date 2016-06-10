@@ -3,10 +3,10 @@
 # https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
 
 # using GNU coreutils in their normal names
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # Also the GNU coreuitls MANPAGE
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
+# MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+alias readlink=greadlink
 # http://stackoverflow.com/questions/6588390/where-is-java-home-on-osx-yosemite-10-10-mavericks-10-9-mountain-lion-10
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
@@ -18,6 +18,10 @@ export DLJC=$JSR308/do-like-javac
 export AFU=$JSR308/annotation-tools/annotation-file-utilities
 export PATH=$AFU/scripts:${PATH}
 alias javac-dev=$CHECKER_FRAMEWORK/checker/bin-devel/javac
+
+setJavaHome() {
+	export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+}
 
 # util function for easy login in to ece & cs server in uwaterloo
 ecelinux(){
